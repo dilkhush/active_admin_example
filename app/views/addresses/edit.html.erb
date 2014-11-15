@@ -1,0 +1,7 @@
+<%= form_for [@user, @address]  do |f| %>
+
+  <%= render partial: '/addresses/form', locals: {f: f} %>
+  <div class="actions">
+    <%= f.submit "Update" %>
+  </div>
+<% end %>

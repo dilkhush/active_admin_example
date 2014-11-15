@@ -1,0 +1,33 @@
+<div class="container">
+  <h2>User Address<%= link_to 'New Address', new_user_address_path, class: 'btn btn-default pull-right' %></h2>
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Address</th>
+          <th>City</th>
+          <th>State</th>
+          <th>Country</th>
+          <th>ZiCode</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @addresses.each do |address|%>
+          <tr>
+            <td><%=address.id%></td>
+            <td><%=address.address1%> <%=address.address2%></td>
+            <td><%=address.city%></td>
+            <td><%=address.state%></td>
+            <td><%=address.country%></td>
+            <td><%=address.zipcode%></td>
+            <td><%= link_to 'Edit', edit_user_address_path(address.user, address) %></td>
+            <td><%= link_to 'Delete', user_address_path(address.user, address), method: :delete, confirm: "Are You sure you want to delete this address?" %></td>
+          </tr>
+        <%end%>
+      </tbody>
+    </table>
+  </div>
+</div>
